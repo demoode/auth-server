@@ -1,0 +1,81 @@
+POST http://127.0.0.1:4000/signup HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+userName=moa34azn1sddssdf3ddd
+&password=thisismyname&email=moadfa3z.nashd00dfs41sd@gmaidfl.com&displayName=moaaz&active=true&provider=local
+
+
+###
+
+POST http://127.0.0.1:4000/login HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+email=moadfa3z.nashd00dfs41sd@gmaidfl.com
+&password=thisismyname
+
+
+
+###
+
+POST http://127.0.0.1:4000/check HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyN2M2NTQyMi1mOTgyLTQxNWMtODFkMi00MGQxY2JiMjgyODgiLCJpYXQiOjE2MDUxMjk3MTgsImV4cCI6MTYwNTEyOTczOH0.2YahkylVzCCAiUQ0ELGufLOAlQhsSzMl4YCbS1R-J2I
+
+
+###
+
+POST http://127.0.0.1:4000/api/v1/signout HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyN2M2NTQyMi1mOTgyLTQxNWMtODFkMi00MGQxY2JiMjgyODgiLCJpYXQiOjE2MDUxMjk1MjB9.EnRTBgDPLAXZJ0zkhjGhl_A1HMGqWeyonO0uboP7V6w
+
+
+###
+
+PUT http://localhost:5000/api/values/1
+content-type: application/json
+
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZmE5NjA5MTA2NGRjYWNjNDBkMWZhODIiLCJpYXQiOjE2MDQ5NDA3NTksImV4cCI6MTYwNTAyNzE1OX0.6tRLAa6PkDs9rpKESst1IpjMKT_fVdo6nEPL93CHYUo"
+}
+
+
+###
+
+POST https://127.0.0.1/newtoken HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3NzBiMzkzMi03NWRjLTRlNmYtYTFkNS0zMDgxYTY3NTlmNjIiLCJpYXQiOjE2MDUyNjExNjN9.HYbUklu9SQFAJHpPulmRGEzUDrO0OJ89DJOvqF3zlWQ
+
+
+###
+
+GET https://127.0.0.1/auth/facebook HTTP/1.1
+
+
+
+###
+
+POST https://127.0.0.1/posts HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+
+###
+
+POST https://127.0.0.1/posts HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3NzBiMzkzMi03NWRjLTRlNmYtYTFkNS0zMDgxYTY3NTlmNjIiLCJpYXQiOjE2MDUyODQ5ODMsImV4cCI6MTYwNzAxMjk4M30.60rl2w3hr_a6OSiwKQYL1f94922qQsoR3nkes1CCur4
+
+###
+
+GET http://127.0.0.1:4000/tests?email=moadfa3z.nashd00dfs41sd@gmaidfl.com
+&password=thisismyname
+
+###
+
+PUT https://127.0.0.1/api/v1/put HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+email=moadfa3z.nashd00dfs41sd@gmaidfl.com
+&password=thisismyname
