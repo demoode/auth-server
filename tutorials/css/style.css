@@ -1,0 +1,41 @@
+body {
+  box-sizing: border-box;
+  margin: 1vw;
+  padding: 1vw;
+}
+.container {
+  display: flex;
+  width: 100%;
+}
+.left {
+  background-color: royalblue;
+  flex: 2;
+}
+.right {
+  background-color: green;
+  flex: 1;
+}
+.codeBox {
+  margin: 0.2vh;
+  position: sticky;
+  top: 0;
+}
+.insideCb {
+  border-radius: 25px;
+  background-color: saddlebrown;
+}
+
+li {
+  list-style: none;
+}
+.title {
+  font-weight: bold;
+}
+.folder {
+  background-color: blue;
+}
+.desc {
+  padding-left: 5px;
+  color: gray;
+  font-style: italic;
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: Routes LocalSignSystem</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: Routes LocalSignSystem</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>contain all the local signup and login &amp; tokens routes</p>
+<h3>Usage:</h3>
+<pre class="prettyprint source"><code>import express from 'express'
+import pass from 'passport';
+import { router as facebookRouter } from './modules/routes/facebook.js'
+let app = express();
+app.use(facebookRouter(passport));
+</code></pre></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Moaaz Nashawi</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_routes_signing.js.html">modules/routes/signing.js</a>, <a href="modules_routes_signing.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".router"><span class="type-signature">(static) </span>router<span class="signature">(passport)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>set the local signing &amp; callback &amp; token route</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>passport</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_routes_signing.js.html">modules/routes/signing.js</a>, <a href="modules_routes_signing.js.html#line35">line 35</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>express router object</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Environments%2520Variables.html">Environments Variables</a></li><li><a href="module-Express%2520CorsConfigurations.html">Express CorsConfigurations</a></li><li><a href="module-Express%2520HttpsServer.html">Express HttpsServer</a></li><li><a href="module-Express%2520IsServerOnMiddleware.html">Express IsServerOnMiddleware</a></li><li><a href="module-MongoDb%2520ConnectTo.html">MongoDb ConnectTo</a></li><li><a href="module-MongoDb%2520TokensOperations.html">MongoDb TokensOperations</a></li><li><a href="module-MongoDb%2520UserOperations.html">MongoDb UserOperations</a></li><li><a href="module-Passport%2520Configurations.html">Passport Configurations</a></li><li><a href="module-Passport%2520FacebookStrategy.html">Passport FacebookStrategy</a></li><li><a href="module-Passport%2520GoogleStrategy.html">Passport GoogleStrategy</a></li><li><a href="module-Routes%2520FacebookSignSystem.html">Routes FacebookSignSystem</a></li><li><a href="module-Routes%2520GoogleSignSystem.html">Routes GoogleSignSystem</a></li><li><a href="module-Routes%2520LocalSignSystem.html">Routes LocalSignSystem</a></li><li><a href="module-Server%2520ServerStatus.html">Server ServerStatus</a></li><li><a href="module-Tools%2520JWTGenerator.html">Tools JWTGenerator</a></li><li><a href="module-Tools%2520MZHTools.html">Tools MZHTools</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-api-reference.html">API Reference</a></li><li><a href="tutorial-project-structure.html">Project Structure</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Nov 19 2020 13:03:44 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

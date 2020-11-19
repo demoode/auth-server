@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Tutorial: API Reference</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Tutorial: API Reference</h1>
+
+    <section>
+
+<header>
+    
+
+    <h2>API Reference</h2>
+</header>
+
+<article>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 1vw;
+        padding: 1vw;
+      }
+      ul {
+      }
+      .container {
+        display: flex;
+        width: 100%;
+      }
+      .left {
+        flex: 2;
+      }
+      .right {
+        flex: 1;
+      }
+      .codeBox {
+        margin: 0.2vh;
+        position: sticky;
+        top: 0;
+      }
+      .insideCb {
+        border-radius: 20px;
+        background-color: #f5f5f5;
+        border: 1px solid gray;
+      }
+      .cbTitle {
+        background-color: white;
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+
+        text-align: center;
+      }
+      .cbDesc {
+        padding: 10px;
+      }
+      .methodPost {
+        color: orange;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      The AuthServer API is organized around REST. Our API has predictable
+      resource-oriented URLs, accepts form-encoded request bodies, returns
+      JSON-encoded responses, and uses standard HTTP response codes,
+      authentication, and verbs.
+    </p>
+    <h3>End Points:</h3>
+    <ul>
+      <li>
+        <a href="#signup">/api/v1/signup</a>
+        <span class="type-signature"
+          >receive the user information and add it to the db</span
+        >
+      </li>
+      <li>
+        <a href="#login">/api/v1/login</a>
+        <span class="type-signature"
+          >receive the user email & password and login the user</span
+        >
+      </li>
+      <li>
+        <a href="#signout">/api/v1/signout</a>
+        <span class="type-signature"
+          >receive the refresh token & sign it out</span
+        >
+      </li>
+      <li>
+        <a href="#userinfo">/api/v1/userinfo (Get | Update | Delete)</a>
+        <span class="type-signature"
+          >get & update & delete the user object
+        </span>
+      </li>
+
+      <li>
+        <a href="#checktoken">/api/v1/checktoken</a>
+        <span class="type-signature">check if the refresh token is valid</span>
+      </li>
+      <li>
+        <a href="#newtoken">/api/v1/newtoken</a>
+        <span class="type-signature">generate new access token</span>
+      </li>
+      <li>
+        <a href="#facebook">/api/v1/auth/facebook</a>
+        <span class="type-signature"
+          >authenticate using Google, you can only use this api with Front-End
+          interface, not normal api request !</span
+        >
+      </li>
+      <li>
+        <a href="#google">/api/v1/auth/google</a>
+        <span class="type-signature"
+          >authenticate using Facebook, you can only use this api with Front-End
+          interface, not normal api request !</span
+        >
+      </li>
+    </ul>
+    <br />
+    <br />
+    <br />
+    <a name="user"></a>
+    <div class="container">
+      <div class="left">
+        <h3>The user object</h3>
+        the user object hold all the user information's, it can be retrieved
+        through end points as JSON object
+      </div>
+      <div class="right">
+        <div class="codeBox">
+          <div class="insideCb">
+            <div class="cbTitle name">The User Object</div>
+            <div class="cbDesc">
+              {<br />
+              * userId:String,<br />
+              * userName:String,<br />
+              displayName:String<br />
+              * email:String,<br />
+              * password:String,<br />
+              * provider:String,<br />
+              * active:Boolean
+              <br />}
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+    <hr />
+    <br />
+
+    <a name="signup"></a>
+    <div class="container">
+      <div class="left">
+        <h3>/api/v1/signup</h3>
+        use this endpoint to create a new user in the db, this endpoint will add
+        new user object in the database, the provider of this endpoint will be
+        recorded in db as local which mean any user created with this endpoint
+        will be recorded as local provider
+      </div>
+      <div class="right">
+        <div class="codeBox">
+          <div class="insideCb">
+            <div class="cbTitle name">
+              <span class="methodPost">POST</span> --> /api/v1/signup
+            </div>
+            <div class="cbDesc">
+              curl http://yourhost.com/api/v1/signup \
+              <br />-d userName=johndoe \<br />-d displayName=John \<br />-d
+              email=johndoe@gmail.com \<br />
+              -d password=strong \<br />-d active=true <br />
+            </div>
+          </div>
+          <br />
+          <div class="insideCb">
+            <div class="cbTitle name">Response</div>
+            <div class="cbDesc">
+              <ul>
+                <li>
+                  Success:
+                  <ul>
+                    <li>
+                      HttpCode 200 Response:<br />{ message:"user created" }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 401 Response:<br />{ message:"user exists" }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 500 Response:<br />{ message:"server under
+                      maintenances" }
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <a name="login"></a>
+    <div class="container">
+      <div class="left">
+        <h3>/api/v1/login</h3>
+        use this endpoint to login using the auth server, this end point take
+        email and password as parameters and return json object with refresh
+        token and access token if success.
+      </div>
+      <div class="right">
+        <div class="codeBox">
+          <div class="insideCb">
+            <div class="cbTitle name">
+              <span class="methodPost">POST</span> --> /api/v1/login
+            </div>
+            <div class="cbDesc">
+              curl http://yourhost.com/api/v1/login \
+              <br />-d email=johndoe \<br />-d password=strong \
+            </div>
+          </div>
+          <br />
+          <div class="insideCb">
+            <div class="cbTitle name">Response</div>
+            <div class="cbDesc">
+              <ul>
+                <li>
+                  Success:
+                  <ul>
+                    <li>
+                      HttpCode 200 Response:<br />{ access_token:"..." ,
+                      refresh_token:"..." }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 403 Response:<br />{ message:"Your account is
+                      banned, please contact the website admin." }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 401 Response:<br />{ message:"email or password
+                      are incorrect!" }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 500 Response:<br />{ message:"server under
+                      maintenances" }
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <a name="signout"></a>
+    <div class="container">
+      <div class="left">
+        <h3>/api/v1/signout</h3>
+        use this endpoint to sign the user out of the auth server, when this end
+        point called, it will delete the refresh token from the db and return
+        empty tokens JSON object.
+      </div>
+      <div class="right">
+        <div class="codeBox">
+          <div class="insideCb">
+            <div class="cbTitle name">
+              <span class="methodPost">POST</span> --> /api/v1/signout
+            </div>
+            <div class="cbDesc">
+              curl http://yourhost.com/api/v1/signout \
+              <br />-d refresh_token=...
+            </div>
+          </div>
+          <br />
+          <div class="insideCb">
+            <div class="cbTitle name">Response</div>
+            <div class="cbDesc">
+              <ul>
+                <li>
+                  Success:
+                  <ul>
+                    <li>
+                      HttpCode 200 Response:<br />{ access_token:"" ,
+                      refresh_token:"" }
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 500 Response:<br />{ message:"server under
+                      maintenances" }
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <br />
+    <hr />
+    <br />
+    <a name="checktoken"></a>
+    <div class="container">
+      <div class="left">
+        <h3>/api/v1/checktoken</h3>
+        use this endpoint to check if the provided access token is valid and
+        issued by this auth server or if the access token is expired.
+      </div>
+      <div class="right">
+        <div class="codeBox">
+          <div class="insideCb">
+            <div class="cbTitle name">
+              <span class="methodPost">POST</span> --> /api/v1/checktoken
+            </div>
+            <div class="cbDesc">
+              curl http://yourhost.com/api/v1/checktoken \
+              <br />-d access_token=...
+            </div>
+          </div>
+          <br />
+          <div class="insideCb">
+            <div class="cbTitle name">Response</div>
+            <div class="cbDesc">
+              <ul>
+                <li>
+                  Success:
+                  <ul>
+                    <li>
+                      HttpCode 200 Response:<br />{ message:"token is valid" }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 410 Response:<br />{ message:"token is expired" }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 403 Response:<br />{ message:"token is not valid"
+                      }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 500 Response:<br />{ message:"server under
+                      maintenances" }
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <br />
+    <hr />
+    <br />
+    <a name="newtoken"></a>
+    <div class="container">
+      <div class="left">
+        <h3>/api/v1/newtoken</h3>
+        use this endpoint to create new access token.
+      </div>
+      <div class="right">
+        <div class="codeBox">
+          <div class="insideCb">
+            <div class="cbTitle name">
+              <span class="methodPost">POST</span> --> /api/v1/newtoken
+            </div>
+            <div class="cbDesc">
+              curl http://yourhost.com/api/v1/newtoken \
+              <br />-d refresh_token=...
+            </div>
+          </div>
+          <br />
+          <div class="insideCb">
+            <div class="cbTitle name">Response</div>
+            <div class="cbDesc">
+              <ul>
+                <li>
+                  Success:
+                  <ul>
+                    <li>
+                      HttpCode 200 Response:<br />{ access_token:".." ,
+                      refresh_token:"..." }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 410 Response:<br />{ message:"token is expired" }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 403 Response:<br />{ message:"token is not valid"
+                      }
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Fail:
+                  <ul>
+                    <li>
+                      HttpCode 500 Response:<br />{ message:"server under
+                      maintenances" }
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <br />
+    <hr />
+    <br />
+    <a name="facebook"></a>
+    <div class="container">
+      <div class="left">
+        <h3>/api/v1/auth/facebook</h3>
+        use this url with Front-End app with normal redirect browser.
+      </div>
+      <div class="right">
+        </div>
+      </div>
+    </div>
+    <br />
+
+   
+    
+  </body>
+</html>
+
+</article>
+
+</section>
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Environments%2520Variables.html">Environments Variables</a></li><li><a href="module-Express%2520CorsConfigurations.html">Express CorsConfigurations</a></li><li><a href="module-Express%2520HttpsServer.html">Express HttpsServer</a></li><li><a href="module-Express%2520IsServerOnMiddleware.html">Express IsServerOnMiddleware</a></li><li><a href="module-MongoDb%2520ConnectTo.html">MongoDb ConnectTo</a></li><li><a href="module-MongoDb%2520TokensOperations.html">MongoDb TokensOperations</a></li><li><a href="module-MongoDb%2520UserOperations.html">MongoDb UserOperations</a></li><li><a href="module-Passport%2520Configurations.html">Passport Configurations</a></li><li><a href="module-Passport%2520FacebookStrategy.html">Passport FacebookStrategy</a></li><li><a href="module-Passport%2520GoogleStrategy.html">Passport GoogleStrategy</a></li><li><a href="module-Routes%2520FacebookSignSystem.html">Routes FacebookSignSystem</a></li><li><a href="module-Routes%2520GoogleSignSystem.html">Routes GoogleSignSystem</a></li><li><a href="module-Routes%2520LocalSignSystem.html">Routes LocalSignSystem</a></li><li><a href="module-Server%2520ServerStatus.html">Server ServerStatus</a></li><li><a href="module-Tools%2520JWTGenerator.html">Tools JWTGenerator</a></li><li><a href="module-Tools%2520MZHTools.html">Tools MZHTools</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-api-reference.html">API Reference</a></li><li><a href="tutorial-project-structure.html">Project Structure</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Thu Nov 19 2020 13:03:44 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

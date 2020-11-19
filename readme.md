@@ -2,7 +2,7 @@
 
 The project is a ready example of using Express with mongo db to create authentication back-end, this back-end use JWT to issue tokens to be used in resource server.
 
-Github repository link https://github.com/demoode/auth-server
+Github repository link https://github.com/moaaz-nashawi/auth-server
 
 full documentation and API manual is available http://syrmedia.com/moaaz/docs/
 
@@ -14,7 +14,7 @@ full documentation and API manual is available http://syrmedia.com/moaaz/docs/
 
 ## Installation
 
-- Clone the github repository https://github.com/demoode/auth-server
+- Clone the github repository https://github.com/moaaz-nashawi/auth-server
 
   `git clone`
 

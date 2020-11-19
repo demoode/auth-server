@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Project Structure</title>
+ <style>
+
+li {
+  list-style: none;
+}
+.title {
+  font-weight: bold;
+}
+.folder {
+  background-color: blue;
+}
+.desc {
+  padding-left: 5px;
+  color: gray;
+  font-style: italic;
+}
+
+ </style>
+  </head>
+  <body>
+   <p> Typical NodeJs project structure, where all files in "src" folder except package.json and node_modules...etc.</p>
+  <p>-- index.js the starting point which contain only imports and initialization code.</p>
+  <p>-- all code executions starts from route files (./modules/routes)</p>
+    <ul>
+ 
+        <ul>
+          <li><span class="file">&nbsp;</span><span class="title" style="color: red;">index.js</span><span class="desc">the starting point of the project</span></li>
+          <li>
+            <span class="folder">&nbsp;</span><span class="title">modules/</span><span class="desc">include all the project modules</span>
+            <ul>
+              <li>
+                <span class="folder">&nbsp;</span><span class="title">configurations/</span><span class="desc">include the configuration modules</span>
+                <ul>
+                  <li><span class="file">&nbsp;</span><span class="title">cert.pem</span><span class="desc">the https server certificate</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">key.pem</span><span class="desc">the https server private key</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">cors.js</span><span class="desc">the cors options</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">custom-middleware.js</span><span class="desc">all the custom middleware used by the project</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">https-server.js</span><span class="desc">the https server configurations</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">jwt-generator.js</span><span class="desc">the jwt token methods</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">mzh-tools.js</span><span class="desc">handy general methods</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">server-status.js</span><span class="desc">contain methods to check if the server is connected or having connection issues</span></li>
+                  
+                </ul>
+              </li>
+              <li>
+                <span class="folder">&nbsp;</span><span class="title">mongodb</span><span class="desc">contain all the mongodb operations & models</span>
+                <ul>
+                  <li><span class="file">&nbsp;</span><span class="title">connect.js</span><span class="desc">contain initialization of mongodb connection</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">tokens.js</span><span class="desc">contain all the tokens mongodb schema & methods</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">users.js</span><span class="desc">contain all the users mongodb schema & methods</span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="folder">&nbsp;</span><span class="title">passport<span class="desc">contain all passport configuration to signing locally or via social platforms</span>
+                <ul>
+                  <li><span class="file">&nbsp;</span><span class="title">passport.js</span><span class="desc">contain passport general configurations</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">facebook.js</span><span class="desc">contain facebook passport strategy</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">google.js</span><span class="desc">contain google passport strategy</span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="folder">&nbsp;</span><span class="title">routes<span class="desc">contain all the express routers</span>
+                <ul>
+                  <li><span class="file">&nbsp;</span><span class="title">signing.js</span><span class="desc">contain the local passport signing routers</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">facebook.js</span><span class="desc">contain facebook passport routers</span></li>
+                  <li><span class="file">&nbsp;</span><span class="title">google.js</span><span class="desc">contain google passport routers</span></li>
+                </ul>
+             </li>
+            </ul>
+          </span></li>
+        </ul>
+      
+      
+    </ul>
+  </body>
+</html>
